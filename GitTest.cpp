@@ -31,3 +31,5 @@ int main(int argc, char *argv[])
   ofile.close();  // close output file
   return 0;
 }
+
+// this is to test Git
