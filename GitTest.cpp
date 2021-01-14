@@ -1,35 +1,15 @@
-#include <iostream>
-#include <cmath>
-#include <fstream>
-#include <iomanip>
-// output file as global variable
-ofstream ofile;
+// A comment line begins like this in C++ programs
+// Standard ANSI-C++ include files
+#include <cstdlib> // atof function 
+#include <iostream>   // input and output
+#include <cmath>      // math functions
 
-// Begin of main program
-
-int main(int argc, char *argv[])
+int main (int argc, char* argv[])
 {
-  char *outfilename;
-  // Read in output file, abort if there are too few command-line arguments
-  if( argc <= 3 ){
-    cout << "Bad Usage: " << argv[0] <<
-      " read also output file, number of integration points and the final x values  on same line, four variables in total" << std::endl;
-    exit(1);
-  }
-  else{
-    outfilename=argv[1];
-  }
-  //  opening a file for the program
-  ofile.open(outfilename);
-  // extracting number of mesh points
-  int i = atoi(argv[2]);
-  double x = atof(argv[3]);  // reading x-value
-  double h = 1.0/((double) i); // setting up step size
-  double Derivative = (exp(x+h)-2.*exp(x)+exp(x-h))/(h*h);
-  double RelativeError = log10(fabs(Derivative-exp(x))/exp(x));
-  ofile <<  setw(15) << setprecision(8) << "relative error=" << RelativeError << endl;
-  ofile.close();  // close output file
-  return 0;
+  // convert the text argv[1] to double using atof:
+  double r = atof(argv[1]);  // convert the text argv[1] to double
+  double s = sin(r);
+  // Note std::cout and std::endl
+  std::cout << "Hello, World! sin(" << r << ") =" << s << std::endl;
+  return 0;           // success execution of the progr 
 }
-
-// this is to test Git
